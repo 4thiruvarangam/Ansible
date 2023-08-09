@@ -1,11 +1,23 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Hello') {
+        stage('Run Bash Script') {
             steps {
-                echo 'Hello World'
+                script {
+                    sh '''
+                    #!/bin/bash
+                    echo "Hello, World!"
+                    # Add your other bash commands here
+                    '''
+                }
             }
+        }
+    }
+    
+    post {
+        always {
+            // You can add post-build actions here
         }
     }
 }
